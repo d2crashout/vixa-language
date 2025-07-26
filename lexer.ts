@@ -5,6 +5,7 @@ export enum TokenType {
     OpenParen, CloseParen,
     BinaryOperator,
     Let,
+    EOF, // Signifies end of file
 }
 
 const KEYWORDS: Record<string, TokenType> = {
@@ -83,6 +84,7 @@ export function tokenize (sourceCode: string): Token[] {
         }
     }
 
+    tokens.push({ type: TokenType.EOF, value: "EndOfFile" });
     return tokens;
 }
 
