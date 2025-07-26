@@ -45,7 +45,7 @@ export function tokenize (sourceCode: string): Token[] {
             tokens.push(token(src.shift(), TokenType.OpenParen));
         } else if (src[0] == ')') {
             tokens.push(token(src.shift(), TokenType.CloseParen));
-        } else if (src[0] == '+' || src[0] == '-' || src[0] == '*' || src[0] == '/') {
+        } else if (src[0] == '+' || src[0] == '-' || src[0] == '*' || src[0] == '/' || src[0] == '%') {
             tokens.push(token(src.shift(), TokenType.BinaryOperator));
         } else if (src[0] == '=') {
             tokens.push(token(src.shift(), TokenType.Equals));
@@ -89,7 +89,7 @@ export function tokenize (sourceCode: string): Token[] {
 }
 
 
-const source = await Deno.readTextFile("./test.vix");
+/*const source = await Deno.readTextFile("./test.vix");
 for (const token of tokenize(source)) {
     console.log(token);
-}
+}*/
